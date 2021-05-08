@@ -88,7 +88,7 @@ def hook_intr(mu,intno,user_data):
 		reg_ax = mu.reg_read(UC_X86_REG_RAX)
 		# <TTYMODE> print string thats null terminated
 		if reg_ax == 1:
-			addrToRead = mu.reg_read(UC_X86_REG_EBX)
+			addrToRead = mu.reg_read(UC_X86_REG_RBX)
 			while mu.mem_read(addrToRead,1)[0] != 0:
 				print("%c" % mu.mem_read(addrToRead,1)[0],end='')
 				addrToRead += 1
